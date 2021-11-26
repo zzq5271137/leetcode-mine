@@ -1,4 +1,4 @@
-/*
+package _203;/*
  * @lc app=leetcode.cn id=203 lang=java
  *
  * [203] 移除链表元素
@@ -8,12 +8,12 @@
 
 /**
  * Definition for singly-linked list.
- * public class ListNode {
+ * public class _203.ListNode {
  * int val;
- * ListNode next;
- * ListNode() {}
- * ListNode(int val) { this.val = val; }
- * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * _203.ListNode next;
+ * _203.ListNode() {}
+ * _203.ListNode(int val) { this.val = val; }
+ * _203.ListNode(int val, _203.ListNode next) { this.val = val; this.next = next; }
  * }
  */
 
