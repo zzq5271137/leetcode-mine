@@ -10,7 +10,7 @@ import java.util.TreeMap;
 
 // @lc code=start
 class Solution {
-    private class Freq implements Comparable<Freq> {
+    private class Freq {
         int e, freq;
 
         public Freq(int e, int freq) {
@@ -18,15 +18,6 @@ class Solution {
             this.freq = freq;
         }
 
-        @Override
-        public int compareTo(Freq another) {
-            if (this.freq < another.freq)
-                return -1;
-            else if (this.freq > another.freq)
-                return 1;
-            else
-                return 0;
-        }
     }
 
     public int[] topKFrequent(int[] nums, int k) {
@@ -41,7 +32,7 @@ class Solution {
         PriorityQueue<Freq> pq = new PriorityQueue<>(new Comparator<Freq>() {
             @Override
             public int compare(Freq o1, Freq o2) {
-                return o1.compareTo(o2);
+                return o1.freq - o2.freq;
             }
         });
 
