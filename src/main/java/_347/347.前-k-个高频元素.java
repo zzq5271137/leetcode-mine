@@ -10,16 +10,6 @@ import java.util.TreeMap;
 
 // @lc code=start
 class Solution {
-    private class Freq {
-        int e, freq;
-
-        public Freq(int e, int freq) {
-            this.e = e;
-            this.freq = freq;
-        }
-
-    }
-
     public int[] topKFrequent(int[] nums, int k) {
         TreeMap<Integer, Integer> map = new TreeMap<>();
         for (int n : nums) {
@@ -29,25 +19,25 @@ class Solution {
                 map.put(n, 1);
         }
 
-        PriorityQueue<Freq> pq = new PriorityQueue<>(new Comparator<Freq>() {
+        PriorityQueue<Integer> pq = new PriorityQueue<>(new Comparator<Integer>() {
             @Override
-            public int compare(Freq o1, Freq o2) {
-                return o1.freq - o2.freq;
+            public int compare(Integer o1, Integer o2) {
+                return map.get(o1) - map.get(o2);
             }
         });
 
         for (int key : map.keySet()) {
             if (pq.size() < k)
-                pq.add(new Freq(key, map.get(key)));
-            else if (map.get(key) > pq.peek().freq) {
+                pq.add(key);
+            else if (map.get(key) > map.get(pq.peek())) {
                 pq.remove();
-                pq.add(new Freq(key, map.get(key)));
+                pq.add(key);
             }
         }
 
         int[] ret = new int[pq.size()];
         for (int i = 0; i < ret.length; i++) {
-            ret[i] = pq.remove().e;
+            ret[i] = pq.remove();
         }
         return ret;
     }
