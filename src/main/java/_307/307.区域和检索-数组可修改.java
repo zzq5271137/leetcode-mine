@@ -7,6 +7,10 @@ package _307;/*
 // @lc code=start
 class NumArray {
 
+    /*
+     * 使用树状数组实现
+     */
+
     int[] data;
     int n;
     int[] tree;

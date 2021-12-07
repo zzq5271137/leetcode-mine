@@ -9,6 +9,11 @@ import java.util.TreeMap;
 
 // @lc code=start
 class Solution {
+
+    /*
+     * 使用java自带的映射实现
+     */
+
     public int[] intersect(int[] nums1, int[] nums2) {
         TreeMap<Integer, Integer> map = new TreeMap<>();
         for (int num : nums1) {

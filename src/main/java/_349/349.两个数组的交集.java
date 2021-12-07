@@ -9,6 +9,11 @@ import java.util.TreeSet;
 
 // @lc code=start
 class Solution {
+
+    /*
+     * 使用java自带的集合实现
+     */
+
     public int[] intersection(int[] nums1, int[] nums2) {
         TreeSet<Integer> set = new TreeSet<>();
         for (int num : nums1)

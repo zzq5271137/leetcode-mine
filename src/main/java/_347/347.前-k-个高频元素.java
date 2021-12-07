@@ -10,6 +10,11 @@ import java.util.TreeMap;
 
 // @lc code=start
 class Solution {
+
+    /*
+     * 使用java自带的优先队列实现
+     */
+
     public int[] topKFrequent(int[] nums, int k) {
         TreeMap<Integer, Integer> map = new TreeMap<>();
         for (int n : nums) {
