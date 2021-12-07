@@ -7,35 +7,37 @@ package _307;/*
 // @lc code=start
 class NumArray {
 
+    int[] data;
+    int n;
     int[] tree;
+
+    public NumArray(int[] nums) {
+        data = nums;
+        n = data.length;
+        tree = new int[n + 1];
+        for (int i = 0; i < n; i++)
+            add(i + 1, data[i]);
+    }
 
     int lowbit(int x) {
         return x & -x;
     }
 
+    void add(int x, int u) {
+        for (int i = x; i <= n; i += lowbit(i))
+            tree[i] += u;
+    }
+
     int query(int x) {
         int ans = 0;
-        for (int i = x; i > 0; i -= lowbit(i)) ans += tree[i];
+        for (int i = x; i > 0; i -= lowbit(i))
+            ans += tree[i];
         return ans;
     }
 
-    void add(int x, int u) {
-        for (int i = x; i <= n; i += lowbit(i)) tree[i] += u;
-    }
-
-    int[] nums;
-    int n;
-
-    public NumArray(int[] _nums) {
-        nums = _nums;
-        n = nums.length;
-        tree = new int[n + 1];
-        for (int i = 0; i < n; i++) add(i + 1, nums[i]);
-    }
-
     public void update(int i, int val) {
-        add(i + 1, val - nums[i]);
-        nums[i] = val;
+        add(i + 1, val - data[i]);
+        data[i] = val;
     }
 
     public int sumRange(int l, int r) {
@@ -46,7 +48,7 @@ class NumArray {
 
 /**
  * Your NumArray object will be instantiated and called as such:
- * NumArray obj = new NumArray(nums);
+ * NumArray obj = new NumArray(data);
  * obj.update(index,val);
  * int param_2 = obj.sumRange(left,right);
  */
