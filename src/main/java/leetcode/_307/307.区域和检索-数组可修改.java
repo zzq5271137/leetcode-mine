@@ -1,4 +1,4 @@
-package _307;/*
+package leetcode._307;/*
  * @lc app=leetcode.cn id=307 lang=java
  *
  * [307] 区域和检索 - 数组可修改

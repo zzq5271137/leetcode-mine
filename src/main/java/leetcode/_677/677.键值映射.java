@@ -1,4 +1,4 @@
-package _677;/*
+package leetcode._677;/*
  * @lc app=leetcode.cn id=677 lang=java
  *
  * [677] 键值映射

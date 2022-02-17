@@ -1,4 +1,4 @@
-package _347;/*
+package leetcode._347;/*
  * @lc app=leetcode.cn id=347 lang=java
  *
  * [347] 前 K 个高频元素

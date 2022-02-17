@@ -1,4 +1,4 @@
-package _211;/*
+package leetcode._211;/*
  * @lc app=leetcode.cn id=211 lang=java
  *
  * [211] 添加与搜索单词 - 数据结构设计

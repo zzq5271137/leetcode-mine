@@ -1,4 +1,4 @@
-package _208;/*
+package leetcode._208;/*
  * @lc app=leetcode.cn id=208 lang=java
  *
  * [208] 实现 Trie (前缀树)

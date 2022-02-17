@@ -1,4 +1,4 @@
-package _350;/*
+package leetcode._350;/*
  * @lc app=leetcode.cn id=350 lang=java
  *
  * [350] 两个数组的交集 II

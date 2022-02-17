@@ -1,4 +1,4 @@
-package _303;/*
+package leetcode._303;/*
  * @lc app=leetcode.cn id=303 lang=java
  *
  * [303] 区域和检索 - 数组不可变
