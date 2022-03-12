@@ -1,5 +1,9 @@
 package mydatastructure.linklist;
 
+/*
+ * 使用链表实现栈（LIFO）
+ */
+
 import mydatastructure.stack.Stack;
 
 public class LinkedListStack<E> implements Stack<E> {

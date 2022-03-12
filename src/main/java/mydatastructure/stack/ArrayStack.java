@@ -1,5 +1,9 @@
 package mydatastructure.stack;
 
+/*
+ * 使用自定义动态数组实现栈（LIFO）
+ */
+
 import mydatastructure.array.Array;
 
 public class ArrayStack<E> implements Stack<E> {

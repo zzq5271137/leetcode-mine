@@ -1,5 +1,9 @@
 package mydatastructure.segmenttree;
 
+/*
+ * 实现线段树
+ */
+
 public class SegmentTree<E> {
 
     private E[] data;

@@ -1,5 +1,9 @@
 package mydatastructure.linklist;
 
+/*
+ * 使用递归实现链表
+ */
+
 import javafx.util.Pair;
 
 public class LinkedListRecursive<E> {

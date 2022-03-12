@@ -1,5 +1,9 @@
 package mydatastructure.stack;
 
+/*
+ * 例题：括号匹配
+ */
+
 public class PairWise {
     public boolean isValid(String s) {
         java.util.Stack<Character> stack = new java.util.Stack<>();

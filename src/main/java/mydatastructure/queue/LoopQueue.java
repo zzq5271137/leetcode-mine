@@ -1,5 +1,9 @@
 package mydatastructure.queue;
 
+/*
+ * 实现循环队列
+ */
+
 public class LoopQueue<E> implements Queue<E> {
 
     private E[] data;

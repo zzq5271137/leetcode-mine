@@ -1,5 +1,9 @@
 package mydatastructure.setandmap;
 
+/*
+ * 自定义集合接口
+ */
+
 public interface Set<E> {
 
     void add(E e);

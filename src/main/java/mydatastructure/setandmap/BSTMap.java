@@ -1,5 +1,9 @@
 package mydatastructure.setandmap;
 
+/*
+ * 使用二分搜索树实现映射
+ */
+
 import java.util.ArrayList;
 
 public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {

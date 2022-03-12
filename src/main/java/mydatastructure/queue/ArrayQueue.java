@@ -1,5 +1,9 @@
 package mydatastructure.queue;
 
+/*
+ * 使用自定义动态数组实现队列
+ */
+
 import mydatastructure.array.Array;
 
 public class ArrayQueue<E> implements Queue<E> {

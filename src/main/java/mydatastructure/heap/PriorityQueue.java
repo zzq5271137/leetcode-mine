@@ -1,5 +1,9 @@
 package mydatastructure.heap;
 
+/*
+ * 使用自定义大顶堆实现优先队列
+ */
+
 import mydatastructure.queue.Queue;
 
 public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {

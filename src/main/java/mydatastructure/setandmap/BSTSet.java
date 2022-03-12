@@ -1,5 +1,9 @@
 package mydatastructure.setandmap;
 
+/*
+ * 使用二分搜索树实现集合
+ */
+
 import mydatastructure.binarysearchtree.BST;
 
 public class BSTSet<E extends Comparable<E>> implements Set<E> {

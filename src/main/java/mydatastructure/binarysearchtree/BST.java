@@ -1,5 +1,9 @@
 package mydatastructure.binarysearchtree;
 
+/*
+ * 实现二分搜索树
+ */
+
 import java.util.*;
 
 public class BST<E extends Comparable<E>> {

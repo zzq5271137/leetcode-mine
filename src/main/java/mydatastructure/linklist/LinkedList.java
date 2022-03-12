@@ -1,5 +1,9 @@
 package mydatastructure.linklist;
 
+/*
+ * 实现链表
+ */
+
 public class LinkedList<E> {
 
     private class Node {

@@ -1,5 +1,9 @@
 package mydatastructure.queue;
 
+/*
+ * 自定义队列接口
+ */
+
 public interface Queue<E> {
 
     boolean isEmpty();

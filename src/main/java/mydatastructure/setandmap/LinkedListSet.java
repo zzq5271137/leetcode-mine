@@ -1,5 +1,9 @@
 package mydatastructure.setandmap;
 
+/*
+ * 使用链表实现集合
+ */
+
 import mydatastructure.linklist.LinkedList;
 
 public class LinkedListSet<E> implements Set<E> {

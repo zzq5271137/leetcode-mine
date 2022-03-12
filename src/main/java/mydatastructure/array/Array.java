@@ -1,5 +1,9 @@
 package mydatastructure.array;
 
+/*
+ * 实现动态数组
+ */
+
 public class Array<E> {
 
     private E[] data;

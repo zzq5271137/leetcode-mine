@@ -1,5 +1,9 @@
 package mydatastructure.setandmap;
 
+/*
+ * 自定义映射接口
+ */
+
 public interface Map<K, V> {
 
     int getSize();

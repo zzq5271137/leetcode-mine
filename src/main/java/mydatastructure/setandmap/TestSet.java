@@ -1,5 +1,9 @@
 package mydatastructure.setandmap;
 
+/*
+ * 测试集合
+ */
+
 import java.util.ArrayList;
 
 public class TestSet {

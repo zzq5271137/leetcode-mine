@@ -1,5 +1,9 @@
 package mydatastructure.heap;
 
+/*
+ * 测试自定义大顶堆的heapify
+ */
+
 import java.util.Random;
 
 public class TestHeapify {

@@ -1,5 +1,9 @@
 package mydatastructure.setandmap;
 
+/*
+ * 使用链表实现映射
+ */
+
 import java.util.ArrayList;
 
 public class LinkedListMap<K, V> implements Map<K, V> {

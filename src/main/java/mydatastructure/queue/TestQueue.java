@@ -1,5 +1,9 @@
 package mydatastructure.queue;
 
+/*
+ * 测试队列
+ */
+
 import mydatastructure.linklist.LinkedListQueue;
 
 import java.util.Random;

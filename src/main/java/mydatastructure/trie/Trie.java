@@ -1,5 +1,9 @@
 package mydatastructure.trie;
 
+/*
+ * 实现字典树
+ */
+
 import java.util.TreeMap;
 
 public class Trie {

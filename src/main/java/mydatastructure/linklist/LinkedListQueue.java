@@ -1,5 +1,9 @@
 package mydatastructure.linklist;
 
+/*
+ * 使用链表实现队列（FIFO）
+ */
+
 import mydatastructure.queue.Queue;
 
 public class LinkedListQueue<E> implements Queue<E> {
