@@ -1,7 +1,7 @@
 package mydatastructure.trie;
 
 /*
- * 实现字典树
+ * 实现字典树（前缀树）
  */
 
 import java.util.TreeMap;
