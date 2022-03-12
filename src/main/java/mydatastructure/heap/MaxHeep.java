@@ -1,5 +1,9 @@
 package mydatastructure.heap;
 
+/*
+ * 使用自定义动态数组实现大顶堆
+ */
+
 import mydatastructure.array.Array;
 
 import java.util.Random;
