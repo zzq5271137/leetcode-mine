@@ -1,7 +1,7 @@
 package mydatastructure.segmenttree;
 
 /*
- * 实现线段树
+ * 实现线段树（前缀树）
  */
 
 public class SegmentTree<E> {
