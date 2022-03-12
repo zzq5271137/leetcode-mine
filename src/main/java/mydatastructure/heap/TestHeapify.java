@@ -2,7 +2,7 @@ package mydatastructure.heap;
 
 import java.util.Random;
 
-public class Main {
+public class TestHeapify {
     private static double testMaxHeap(Integer[] testData, boolean useHeapify) {
         long start = System.nanoTime();
 
