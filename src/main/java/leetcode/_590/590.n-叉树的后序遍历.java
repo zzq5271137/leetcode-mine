@@ -24,9 +24,7 @@ class Node {
 };
 */
 
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 class Solution {
 
@@ -36,25 +34,26 @@ class Solution {
     }
 
     public List<Integer> nonRecursive(Node root) {
-        List<Integer> vals = new LinkedList<>();
+        List<Integer> ans = new ArrayList<>();
         Deque<Object[]> stack = new LinkedList<>();
         stack.push(new Object[]{0, root});
         while (!stack.isEmpty()) {
             Object[] poped = stack.pop();
-            Integer num = (Integer) poped[0];
-            Node cur = (Node) poped[1];
+            Integer cnt = (Integer) poped[0];
+            Node t = (Node) poped[1];
 
-            if (cur == null)
+            if (t == null)
                 continue;
-            if (num == cur.children.size())
-                vals.add(cur.val);
 
-            if (num < cur.children.size()) {
-                stack.push(new Object[]{num + 1, cur});
-                stack.push(new Object[]{0, cur.children.get(num)});
+            if (cnt == t.children.size())
+                ans.add(t.val);
+
+            if (cnt < t.children.size()) {
+                stack.push(new Object[]{cnt + 1, t});
+                stack.push(new Object[]{0, t.children.get(cnt)});
             }
         }
-        return vals;
+        return ans;
     }
 
     private List<Integer> recursive(Node root) {
