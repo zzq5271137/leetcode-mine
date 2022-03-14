@@ -7,7 +7,45 @@ package leetcode._76;/*
 // @lc code=start
 class Solution {
     public String minWindow(String s, String t) {
-        return good(s, t);
+//        return good(s, t);
+        return mine(s, t);
+    }
+
+    private String mine(String s, String t) {
+        if (s == null || s.length() == 0 || t == null || t.length() == 0 || s.length() < t.length())
+            return "";
+
+        int[] need = new int[128];
+        for (int i = 0; i < t.length(); i++)
+            need[t.charAt(i)]++;
+
+        int left = 0, right = 0, start = 0, size = Integer.MAX_VALUE, count = t.length();
+        while (right < s.length()) {
+            int c = s.charAt(right);
+
+            if (need[c] > 0)
+                count--;
+
+            need[c]--;
+
+            if (count == 0) {
+                while (left < right && need[s.charAt(left)] < 0) {
+                    need[s.charAt(left)]++;
+                    left++;
+                }
+                if (right - left + 1 < size) {
+                    size = right - left + 1;
+                    start = left;
+                }
+                need[s.charAt(left)]++;
+                left++;
+                count++;
+            }
+
+            right++;
+        }
+
+        return size == Integer.MAX_VALUE ? "" : s.substring(start, start + size);
     }
 
     private String good(String s, String t) {
@@ -48,4 +86,3 @@ class Solution {
     }
 }
 // @lc code=end
-
