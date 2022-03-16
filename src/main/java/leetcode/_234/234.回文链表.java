@@ -88,19 +88,14 @@ class Solution {
         if (head.next.next == null)
             return head.val == head.next.val;
 
-        ListNode slow = head;
-        ListNode fast = head.next;
+        ListNode slow = head.next;
+        ListNode fast = head.next.next;
         while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
 
-        ListNode secondHalf;
-        if (fast.next == null) {
-            secondHalf = slow.next;
-        } else {
-            secondHalf = slow.next.next;
-        }
+        ListNode secondHalf = slow.next;
         slow.next = null;
 
         ListNode tail = null;
@@ -111,7 +106,7 @@ class Solution {
             secondHalf = next;
         }
 
-        while (head != null) {
+        while (head != null && tail != null) {
             if (head.val != tail.val)
                 return false;
             head = head.next;
