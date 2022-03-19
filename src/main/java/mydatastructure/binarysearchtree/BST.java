@@ -88,17 +88,20 @@ public class BST<E extends Comparable<E>> {
     }
 
     public void preOrderNR() {
-        Stack<Node> stack = new Stack<>();
-        stack.push(root);
-
-        while (!stack.isEmpty()) {
-            Node cur = stack.pop();
-            if (cur != null) {
-                System.out.println(cur.e);
-                stack.push(cur.right);
-                stack.push(cur.left);
+        Node head = root;
+        if (head != null) {
+            Stack<Node> stack = new Stack<>();
+            stack.push(root);
+            while (!stack.isEmpty()) {
+                head = stack.pop();
+                System.out.print(head.e + " ");
+                if (head.right != null)
+                    stack.push(head.right);
+                if (head.left != null)
+                    stack.push(head.left);
             }
         }
+        System.out.println();
     }
 
     public void inOrder() {
@@ -114,6 +117,24 @@ public class BST<E extends Comparable<E>> {
         inOrder(node.right);
     }
 
+    public void inOrderNR() {
+        Node head = root;
+        if (head != null) {
+            Stack<Node> stack = new Stack<>();
+            while (!stack.isEmpty() || head != null) {
+                if (head != null) {
+                    stack.push(head);
+                    head = head.left;
+                } else {
+                    head = stack.pop();
+                    System.out.println(head.e + " ");
+                    head = head.right;
+                }
+            }
+        }
+        System.out.println();
+    }
+
     public void postOrder() {
         postOrder(root);
     }
@@ -125,6 +146,31 @@ public class BST<E extends Comparable<E>> {
         postOrder(node.left);
         postOrder(node.right);
         System.out.println(node.e);
+    }
+
+    public void postOrderNR1() {
+        Node head = root;
+        if (head != null) {
+            Stack<Node> s1 = new Stack<>();
+            Stack<Node> s2 = new Stack<>();
+            s1.push(root);
+            while (!s1.isEmpty()) {
+                head = s1.pop();
+                s2.push(head);
+                if (head.left != null)
+                    s1.push(head.left);
+                if (head.right != null)
+                    s1.push(head.right);
+            }
+            while (!s2.isEmpty()) {
+                System.out.println(s2.pop().e + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    public void postOrderNR2() {
+
     }
 
     public void levelOrder() {
