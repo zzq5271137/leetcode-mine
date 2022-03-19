@@ -148,7 +148,7 @@ public class BST<E extends Comparable<E>> {
         System.out.println(node.e);
     }
 
-    public void postOrderNR1() {
+    public void postOrderNR() {
         Node head = root;
         if (head != null) {
             Stack<Node> s1 = new Stack<>();
@@ -167,10 +167,6 @@ public class BST<E extends Comparable<E>> {
             }
         }
         System.out.println();
-    }
-
-    public void postOrderNR2() {
-
     }
 
     public void levelOrder() {
