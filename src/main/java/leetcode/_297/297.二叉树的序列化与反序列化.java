@@ -26,8 +26,8 @@ class Codec {
      * 序列化
      */
     public String serialize(TreeNode root) {
-//        return preOrderSerialize(root);
-        return levelOrderSerialize(root);
+        return preOrderSerialize(root);
+//        return levelOrderSerialize(root);
     }
 
     private String preOrderSerialize(TreeNode root) {
@@ -70,8 +70,8 @@ class Codec {
      * 反序列化
      */
     public TreeNode deserialize(String data) {
-//        return preOrderDeserialize(data);
-        return levelOrderDeserialize(data);
+        return preOrderDeserialize(data);
+//        return levelOrderDeserialize(data);
     }
 
     private TreeNode preOrderDeserialize(String data) {
@@ -80,13 +80,11 @@ class Codec {
     }
 
     private TreeNode preOrderDeserialize(List<String> dataList) {
-
-        if (dataList.get(0).equals("null")) {
-            dataList.remove(0);
+        String curVal = dataList.remove(0);
+        if (curVal.equals("null"))
             return null;
-        }
-        TreeNode node = new TreeNode(Integer.parseInt(dataList.get(0)));
-        dataList.remove(0);
+
+        TreeNode node = new TreeNode(Integer.parseInt(curVal));
         node.left = preOrderDeserialize(dataList);
         node.right = preOrderDeserialize(dataList);
         return node;
