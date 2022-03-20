@@ -26,8 +26,24 @@ class Codec {
      * 序列化
      */
     public String serialize(TreeNode root) {
-//        return preOrderSerialize(root, "");
+//        return preOrderSerialize(root);
         return levelOrderSerialize(root);
+    }
+
+    private String preOrderSerialize(TreeNode root) {
+        return preOrderSerialize(root, "");
+    }
+
+    private String preOrderSerialize(TreeNode node, String res) {
+        if (node == null) {
+            res += "null,";
+            return res;
+        }
+
+        res += node.val + ",";
+        res = preOrderSerialize(node.left, res);
+        res = preOrderSerialize(node.right, res);
+        return res;
     }
 
     private String levelOrderSerialize(TreeNode root) {
@@ -50,28 +66,34 @@ class Codec {
         return res.toString();
     }
 
-    private String preOrderSerialize(TreeNode node, String res) {
-        if (node == null) {
-            res += "null,";
-            return res;
-        }
-
-        res += node.val + ",";
-        res = preOrderSerialize(node.left, res);
-        res = preOrderSerialize(node.right, res);
-        return res;
-    }
-
     /*
      * 反序列化
      */
     public TreeNode deserialize(String data) {
-        List<String> dataList = new LinkedList<>(Arrays.asList(data.split(",")));
-//        return preOrderDeserialize(dataList);
-        return levelOrderDeserialize(dataList);
+//        return preOrderDeserialize(data);
+        return levelOrderDeserialize(data);
     }
 
-    private TreeNode levelOrderDeserialize(List<String> dataList) {
+    private TreeNode preOrderDeserialize(String data) {
+        List<String> dataList = new LinkedList<>(Arrays.asList(data.split(",")));
+        return preOrderDeserialize(dataList);
+    }
+
+    private TreeNode preOrderDeserialize(List<String> dataList) {
+
+        if (dataList.get(0).equals("null")) {
+            dataList.remove(0);
+            return null;
+        }
+        TreeNode node = new TreeNode(Integer.parseInt(dataList.get(0)));
+        dataList.remove(0);
+        node.left = preOrderDeserialize(dataList);
+        node.right = preOrderDeserialize(dataList);
+        return node;
+    }
+
+    private TreeNode levelOrderDeserialize(String data) {
+        List<String> dataList = new LinkedList<>(Arrays.asList(data.split(",")));
         String val = dataList.remove(0);
         TreeNode head = null;
         if (!val.equals("null")) {
@@ -96,18 +118,6 @@ class Codec {
         if (val.equals("null"))
             return null;
         return new TreeNode(Integer.parseInt(val));
-    }
-
-    private TreeNode preOrderDeserialize(List<String> dataList) {
-        if (dataList.get(0).equals("null")) {
-            dataList.remove(0);
-            return null;
-        }
-        TreeNode node = new TreeNode(Integer.parseInt(dataList.get(0)));
-        dataList.remove(0);
-        node.left = preOrderDeserialize(dataList);
-        node.right = preOrderDeserialize(dataList);
-        return node;
     }
 
 }
