@@ -22,36 +22,36 @@ import java.util.List;
 class Codec {
 
     public String serialize(TreeNode root) {
-        return serialize(root, "");
+        return preOrderSerialize(root, "");
     }
 
-    private String serialize(TreeNode node, String res) {
+    private String preOrderSerialize(TreeNode node, String res) {
         if (node == null) {
             res += "null,";
             return res;
         }
 
         res += node.val + ",";
-        res = serialize(node.left, res);
-        res = serialize(node.right, res);
+        res = preOrderSerialize(node.left, res);
+        res = preOrderSerialize(node.right, res);
         return res;
     }
 
 
     public TreeNode deserialize(String data) {
         List<String> dataList = new LinkedList<>(Arrays.asList(data.split(",")));
-        return deserialize(dataList);
+        return preOrderDeserialize(dataList);
     }
 
-    private TreeNode deserialize(List<String> dataList) {
+    private TreeNode preOrderDeserialize(List<String> dataList) {
         if (dataList.get(0).equals("null")) {
             dataList.remove(0);
             return null;
         }
         TreeNode node = new TreeNode(Integer.parseInt(dataList.get(0)));
         dataList.remove(0);
-        node.left = deserialize(dataList);
-        node.right = deserialize(dataList);
+        node.left = preOrderDeserialize(dataList);
+        node.right = preOrderDeserialize(dataList);
         return node;
     }
 
