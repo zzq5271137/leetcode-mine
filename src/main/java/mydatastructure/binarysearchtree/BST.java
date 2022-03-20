@@ -305,6 +305,112 @@ public class BST<E extends Comparable<E>> {
         return res.toString();
     }
 
+    /*
+     * 统计树的最大宽度，借助map实现。
+     *
+     * 注意，这里的最大宽度不包含null节点，即这里只统计每层的不包含null的节点数量；
+     * 另一种树的宽度，是包含null，详见leetcode-662。
+     */
+    public int maxWidthUseMap() {
+        Node head = root;
+        if (head == null)
+            return 0;
+
+        Deque<Node> queue = new LinkedList<>();
+        queue.add(head);
+        HashMap<Node, Integer> levelMap = new HashMap<>();  // 存储节点和其对应的层数
+        levelMap.put(head, 1);
+        int curLevel = 1;  // 当前正在统计哪一层的宽度
+        int curLevelNodes = 0;  // 当前层，宽度是多少
+        int max = 0;
+        while (!queue.isEmpty()) {
+            Node cur = queue.remove();
+            int curNodeLevel = levelMap.get(cur);
+            if (cur.left != null) {
+                levelMap.put(cur.left, curNodeLevel + 1);
+                queue.add(cur.left);
+            }
+            if (cur.right != null) {
+                levelMap.put(cur.right, curNodeLevel + 1);
+                queue.add(cur.right);
+            }
+            if (curNodeLevel == curLevel) {
+                curLevelNodes++;
+            } else {
+                max = Math.max(max, curLevelNodes);
+                curLevel++;
+                curLevelNodes = 1;
+            }
+        }
+        max = Math.max(max, curLevelNodes);
+        return max;
+    }
+
+    /*
+     * 统计树的最大宽度，不借助map。
+     *
+     * 注意，这里的最大宽度不包含null节点，即这里只统计每层的不包含null的节点数量；
+     * 另一种树的宽度，是包含null，详见leetcode-662。
+     */
+    public int maxWidthNotUseMap1() {
+        Node head = root;
+        if (head == null)
+            return 0;
+
+        Deque<Node> queue = new LinkedList<>();
+        queue.add(head);
+        Node curEnd = head;  // 当前层，最右节点是谁
+        Node nextEnd = null;  // 下一层，最右节点是谁
+        int max = 0;
+        int curLevelNodes = 0;  // 当前层的节点数
+        while (!queue.isEmpty()) {
+            Node cur = queue.remove();
+            if (cur.left != null) {
+                queue.add(cur.left);
+                nextEnd = cur.left;
+            }
+            if (cur.right != null) {
+                queue.add(cur.right);
+                nextEnd = cur.right;
+            }
+            curLevelNodes++;
+            if (cur == curEnd) {
+                max = Math.max(max, curLevelNodes);
+                curLevelNodes = 0;
+                curEnd = nextEnd;
+            }
+        }
+        return max;
+    }
+
+    /*
+     * 统计树的最大宽度，不借助map。
+     *
+     * 注意，这里的最大宽度不包含null节点，即这里只统计每层的不包含null的节点数量；
+     * 另一种树的宽度，是包含null，详见leetcode-662。
+     */
+    public int maxWidthNotUseMap2() {
+        Node head = root;
+        if (head == null)
+            return 0;
+
+        Deque<Node> queue = new LinkedList<>();
+        queue.add(head);
+        int maxWidth = 1;
+        while (!queue.isEmpty()) {
+            int curLevelNodes = queue.size();
+            for (int i = 0; i < curLevelNodes; i++) {
+                Node node = queue.remove();
+                if (node.left != null)
+                    queue.add(node.left);
+                if (node.right != null)
+                    queue.add(node.right);
+            }
+            maxWidth = Math.max(maxWidth, curLevelNodes);
+        }
+        return maxWidth;
+    }
+
     public static void main(String[] args) {
 //        testPrint();
 //        testRemoveMin();
