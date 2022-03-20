@@ -26,8 +26,8 @@ class Codec {
      * 序列化
      */
     public String serialize(TreeNode root) {
-        return preOrderSerialize(root);
-//        return levelOrderSerialize(root);
+//        return preOrderSerialize(root);
+        return levelOrderSerialize(root);
     }
 
     private String preOrderSerialize(TreeNode root) {
@@ -70,8 +70,8 @@ class Codec {
      * 反序列化
      */
     public TreeNode deserialize(String data) {
-        return preOrderDeserialize(data);
-//        return levelOrderDeserialize(data);
+//        return preOrderDeserialize(data);
+        return levelOrderDeserialize(data);
     }
 
     private TreeNode preOrderDeserialize(String data) {
