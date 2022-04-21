@@ -24,7 +24,7 @@ public class TestSet {
     }
 
     public static void main(String[] args) {
-        String filename = "/Users/zzq/Documents/workspaces/IDEA_workspace/java-practise/src/main/java/datastructure/setandmap/pride-and-prejudice.txt";
+        String filename = "/Users/zzq/Documents/workspaces/IDEA_workspace/leetcode-mine/src/main/java/mydatastructure/setandmap/pride-and-prejudice.txt";
 
         Set<String> bstSet = new BSTSet<>();
         double t1 = testSet(filename, bstSet);

@@ -1,29 +1,36 @@
-package mydatastructure.setandmap;
+package mydatastructure.redblacktree;
 
 /*
- * 使用二分搜索树实现映射
+ * 实现红黑树
  */
+
+import mydatastructure.setandmap.FileOperation;
+import mydatastructure.setandmap.Map;
 
 import java.util.ArrayList;
 
-public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
+public class RedBlackTree<K extends Comparable<K>, V> implements Map<K, V> {
+    private static final boolean RED = true;
+    private static final boolean BLACK = false;
 
     private class Node {
         public K key;
         public V value;
         public Node left, right;
+        public boolean color;
 
         public Node(K key, V value) {
             this.key = key;
             this.value = value;
             this.right = this.left = null;
+            this.color = RED;
         }
     }
 
     private Node root;
     private int size;
 
-    public BSTMap() {
+    public RedBlackTree() {
         root = null;
         size = 0;
     }
@@ -36,6 +43,12 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
     @Override
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    private boolean isRed(Node node) {
+        if (node == null)
+            return BLACK;
+        return node.color;
     }
 
     @Override
@@ -154,7 +167,7 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
         ArrayList<String> words = new ArrayList<>();
         if (FileOperation.readFile(filename, words)) {
             System.out.println("Total words: " + words.size());
-            Map<String, Integer> map = new BSTMap<>();
+            RedBlackTree<String, Integer> map = new RedBlackTree<>();
             for (String word : words)
                 if (map.contains(word))
                     map.set(word, map.get(word) + 1);

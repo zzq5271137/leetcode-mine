@@ -111,7 +111,7 @@ public class LinkedListMap<K, V> implements Map<K, V> {
     }
 
     public static void main(String[] args) {
-        String filename = "/Users/zzq/Documents/workspaces/IDEA_workspace/java-practise/src/main/java/datastructure/setandmap/pride-and-prejudice.txt";
+        String filename = "/Users/zzq/Documents/workspaces/IDEA_workspace/leetcode-mine/src/main/java/mydatastructure/setandmap/pride-and-prejudice.txt";
         ArrayList<String> words = new ArrayList<>();
         if (FileOperation.readFile(filename, words)) {
             System.out.println("Total words: " + words.size());

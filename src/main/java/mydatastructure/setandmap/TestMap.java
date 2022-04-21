@@ -29,7 +29,7 @@ public class TestMap {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        String filename = "/Users/zzq/Documents/workspaces/IDEA_workspace/java-practise/src/main/java/datastructure/setandmap/pride-and-prejudice.txt";
+        String filename = "/Users/zzq/Documents/workspaces/IDEA_workspace/leetcode-mine/src/main/java/mydatastructure/setandmap/pride-and-prejudice.txt";
 
         Thread bstMapThread = new Thread(() -> {
             Map<String, Integer> bstMap = new BSTMap<>();
