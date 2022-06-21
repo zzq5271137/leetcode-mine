@@ -9,6 +9,10 @@ package leetcode._4;
 class Solution {
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        return official(nums1, nums2);
+    }
+
+    private double official(int[] nums1, int[] nums2) {
         int length1 = nums1.length, length2 = nums2.length;
         int totalLength = length1 + length2;
         if (totalLength % 2 == 1) {
@@ -22,7 +26,7 @@ class Solution {
         }
     }
 
-    public int getKthElement(int[] nums1, int[] nums2, int k) {
+    private int getKthElement(int[] nums1, int[] nums2, int k) {
         /* 主要思路：要找到第 k (k>1) 小的元素，那么就取 pivot1 = nums1[k/2-1] 和 pivot2 = nums2[k/2-1] 进行比较
          * 这里的 "/" 表示整除
          * nums1 中小于等于 pivot1 的元素有 nums1[0 .. k/2-2] 共计 k/2-1 个
