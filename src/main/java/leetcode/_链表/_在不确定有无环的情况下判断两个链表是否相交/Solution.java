@@ -1,4 +1,4 @@
-package leetcode._在不确定有无环的情况下判断两个链表是否相交;
+package leetcode._链表._在不确定有无环的情况下判断两个链表是否相交;
 
 public class Solution {
 

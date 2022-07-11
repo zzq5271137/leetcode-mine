@@ -27,12 +27,15 @@ class Automaton {
     public int sign = 1;
     public long ans = 0;
     private String state = "start";
-    private Map<String, String[]> table = new HashMap<String, String[]>() {{
-        put("start", new String[]{"start", "signed", "in_number", "end"});
-        put("signed", new String[]{"end", "end", "in_number", "end"});
-        put("in_number", new String[]{"end", "end", "in_number", "end"});
-        put("end", new String[]{"end", "end", "end", "end"});
-    }};
+    private Map<String, String[]> table = new HashMap<String, String[]>() {
+        // 匿名内部类的写法，在原有类的基础上加上了一个代码块儿而已
+        {
+            put("start", new String[]{"start", "signed", "in_number", "end"});
+            put("signed", new String[]{"end", "end", "in_number", "end"});
+            put("in_number", new String[]{"end", "end", "in_number", "end"});
+            put("end", new String[]{"end", "end", "end", "end"});
+        }
+    };
 
     public void get(char c) {
         state = table.get(state)[get_col(c)];

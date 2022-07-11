@@ -18,18 +18,19 @@ package leetcode._83;/*
  */
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
-        if (head == null || head.next == null)
+        if (head == null)
             return head;
 
         ListNode cur = head;
-        while (cur != null) {
-            while (cur.next != null && cur.val == cur.next.val) {
-                ListNode next = cur.next;
-                cur.next = next.next;
-                next.next = null;
+
+        while (cur.next != null) {
+            if (cur.val == cur.next.val) {
+                cur.next = cur.next.next;
+            } else {
+                cur = cur.next;
             }
-            cur = cur.next;
         }
+
         return head;
     }
 }

@@ -54,6 +54,37 @@ class Solution {
         }
         return newHead;
     }
+
+    public ListNode mine(ListNode head, int x) {
+        ListNode dummyHead = new ListNode(0, head);
+        ListNode cur = dummyHead;
+        ListNode reserve = null;
+        ListNode dummyReserve = new ListNode(0, reserve);
+        while (cur.next != null) {
+            if (cur.next.val < x) {
+                ListNode next = cur.next;
+                cur.next = next.next;
+                next.next = null;
+                if (reserve == null) {
+                    reserve = next;
+                    dummyReserve.next = reserve;
+                } else {
+                    reserve.next = next;
+                    reserve = reserve.next;
+                }
+            } else {
+                cur = cur.next;
+            }
+        }
+
+        if (reserve == null) {
+            return dummyHead.next;
+        } else {
+            reserve.next = dummyHead.next;
+            return dummyReserve.next;
+        }
+    }
+
 }
 // @lc code=end
 
